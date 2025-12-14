@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Royal Rasoi - Elegant Indian Restaurant Theme */
+    --background: 30 25% 97%;
+    --foreground: 20 15% 15%;
+
+    --card: 30 20% 99%;
+    --card-foreground: 20 15% 15%;
+
+    --popover: 30 20% 99%;
+    --popover-foreground: 20 15% 15%;
+
+    /* Deep Burgundy - Royal Primary */
+    --primary: 350 65% 25%;
+    --primary-foreground: 40 30% 95%;
+
+    /* Warm Gold - Accent */
+    --secondary: 38 75% 55%;
+    --secondary-foreground: 20 15% 10%;
+
+    /* Cream Muted */
+    --muted: 35 20% 92%;
+    --muted-foreground: 20 10% 45%;
+
+    /* Gold Accent */
+    --accent: 38 85% 50%;
+    --accent-foreground: 20 15% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 25% 85%;
+    --input: 35 25% 85%;
+    --ring: 350 65% 25%;
+
+    --radius: 0.5rem;
+
+    /* Custom Royal Rasoi Variables */
+    --gold: 38 85% 50%;
+    --gold-light: 40 80% 70%;
+    --burgundy: 350 65% 25%;
+    --burgundy-light: 350 50% 35%;
+    --cream: 40 30% 95%;
+    --cream-dark: 35 20% 90%;
+    
+    /* Gradients */
+    --gradient-royal: linear-gradient(135deg, hsl(350 65% 25%), hsl(350 65% 20%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 85% 50%), hsl(40 80% 60%));
+    --gradient-cream: linear-gradient(180deg, hsl(30 25% 97%), hsl(35 20% 92%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(350 65% 25% / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(20 15% 15% / 0.08);
+    --shadow-gold: 0 8px 30px -8px hsl(38 85% 50% / 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 30 20% 99%;
+    --sidebar-foreground: 20 15% 25%;
+    --sidebar-primary: 350 65% 25%;
+    --sidebar-primary-foreground: 40 30% 95%;
+    --sidebar-accent: 35 20% 94%;
+    --sidebar-accent-foreground: 20 15% 15%;
+    --sidebar-border: 35 25% 88%;
+    --sidebar-ring: 350 65% 25%;
+  }
+
+  .dark {
+    --background: 20 15% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 20 15% 10%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 20 15% 10%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 38 85% 55%;
+    --primary-foreground: 20 15% 10%;
+
+    --secondary: 350 50% 35%;
+    --secondary-foreground: 40 30% 95%;
+
+    --muted: 20 15% 15%;
+    --muted-foreground: 35 15% 65%;
+
+    --accent: 38 75% 50%;
+    --accent-foreground: 20 15% 10%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 15% 18%;
+    --input: 20 15% 18%;
+    --ring: 38 85% 55%;
+
+    --gold: 38 85% 55%;
+    --gold-light: 40 75% 65%;
+    --burgundy: 350 50% 40%;
+    --burgundy-light: 350 45% 50%;
+    --cream: 35 15% 15%;
+    --cream-dark: 20 15% 12%;
+
+    --sidebar-background: 20 15% 10%;
+    --sidebar-foreground: 35 15% 85%;
+    --sidebar-primary: 38 85% 55%;
+    --sidebar-primary-foreground: 20 15% 10%;
+    --sidebar-accent: 20 15% 15%;
+    --sidebar-accent-foreground: 35 15% 90%;
+    --sidebar-border: 20 15% 18%;
+    --sidebar-ring: 38 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-royal {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300;
+  }
+
+  .btn-gold {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .card-royal {
+    @apply bg-card border border-border rounded-lg shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  .gradient-royal {
+    background: var(--gradient-royal);
+  }
+
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .text-gold {
+    @apply text-accent;
+  }
+
+  .table-available {
+    @apply bg-emerald-100 border-emerald-400 text-emerald-700 hover:bg-emerald-200 cursor-pointer;
+  }
+
+  .table-reserved {
+    @apply bg-destructive/10 border-destructive/30 text-destructive/70 cursor-not-allowed opacity-60;
+  }
+
+  .table-selected {
+    @apply bg-accent border-accent text-accent-foreground ring-2 ring-accent ring-offset-2;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--background)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
